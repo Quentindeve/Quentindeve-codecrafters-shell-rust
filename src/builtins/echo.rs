@@ -6,7 +6,7 @@ pub fn builtins_echo(args: Vec<String>) -> Result<(), ErrorType> {
         .skip(1)
         .fold(String::new(), |acc, arg| acc + arg + " ");
 
-    println!("{}", text);
+    print!("{}", text);
 
     Ok(())
 }
