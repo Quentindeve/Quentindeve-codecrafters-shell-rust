@@ -1,5 +1,3 @@
-use super::BuiltinCommand;
-
 use crate::command::ErrorType;
 
 pub fn builtins_exit(args: Vec<String>) -> Result<(), ErrorType> {

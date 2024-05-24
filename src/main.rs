@@ -27,7 +27,7 @@ fn main() {
 
         match command {
             Some(builtin) => {
-                let result = builtin.execute(args);
+                let _ = builtin.execute(args);
             }
             None => {
                 println!("{}: command not found", &input.trim());
