@@ -2,6 +2,7 @@ pub type CommandCallback = fn(Vec<String>) -> Result<(), ErrorType>;
 
 use crate::builtins::*;
 
+#[derive(Debug)]
 pub enum ErrorType {
     CommandNotFound(String),
     ArgumentError(usize),

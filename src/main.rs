@@ -27,10 +27,10 @@ fn main() {
 
         match command {
             Some(builtin) => {
-                let _ = builtin.execute(args);
+                let _ = builtin.execute(args).unwrap();
             }
             None => {
-                println!("{}: command not found", &input.trim());
+                println!("{}: command not found", args.get(0).unwrap());
             }
         }
     }
