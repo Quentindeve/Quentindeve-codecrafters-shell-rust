@@ -21,5 +21,5 @@ impl<'a> BuiltinCommand<'a> {
 }
 
 pub fn get_builtins() -> Vec<BuiltinCommand<'static>> {
-    vec![BUILTIN_EXIT]
+    vec![BUILTIN_EXIT, BUILTIN_ECHO]
 }
