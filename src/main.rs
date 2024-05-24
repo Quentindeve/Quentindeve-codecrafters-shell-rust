@@ -6,7 +6,6 @@ fn main() {
 
     let commands: Vec<String> = vec![];
     loop {
-        print!("$ ");
         let input = prompt_input();
         if !commands.contains(&input) {
             println!("{}: command not found", &input.trim());
@@ -16,6 +15,11 @@ fn main() {
 }
 
 fn prompt_input() -> String {
+    // Print prompt
+    print!("$ ");
+    io::stdout().flush().unwrap();
+
+    // Read stdin
     let stdin = io::stdin();
     let mut input = String::new();
     stdin.read_line(&mut input).unwrap();
