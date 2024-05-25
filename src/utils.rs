@@ -11,7 +11,7 @@ pub fn search_command_in_env(command_name: &str) -> Option<PathBuf> {
     if let Ok(file) = file {
         let metadata = file.metadata().unwrap();
         if metadata.is_file() {
-            return Some(PathBuf::from(command_name));
+            return Some(std::fs::canonicalize(PathBuf::from(command_name)).unwrap());
         }
     }
 
