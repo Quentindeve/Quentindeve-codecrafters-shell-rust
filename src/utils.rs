@@ -1,12 +1,21 @@
 use std::{
     ffi::OsString,
+    fs::{File, Metadata},
     path::{Path, PathBuf},
     process::{Command, ExitStatus, Stdio},
 };
 
 pub fn search_command_in_env(command_name: &str) -> Option<PathBuf> {
+    // If the command is qualifying a full path, we check if it exists
+    let file = File::open(command_name);
+    if let Ok(file) = file {
+        let metadata = file.metadata().unwrap();
+        if metadata.is_file() {
+            return Some(PathBuf::from(command_name));
+        }
+    }
+
     let env = std::env::var("PATH").unwrap();
-    println!("ENV: {}", env);
     let mut paths = env
         .split(":")
         .map(|s| String::from(s))
