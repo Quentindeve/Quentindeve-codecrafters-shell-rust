@@ -1,6 +1,6 @@
 use std::{
     ffi::OsString,
-    fs::{File, Metadata},
+    fs::File,
     path::{Path, PathBuf},
     process::{Command, ExitStatus, Stdio},
 };
