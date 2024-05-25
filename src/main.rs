@@ -3,6 +3,7 @@ use std::io::{self, Write};
 
 pub mod builtins;
 pub mod command;
+pub mod utils;
 
 fn main() {
     io::stdout().flush().unwrap();
