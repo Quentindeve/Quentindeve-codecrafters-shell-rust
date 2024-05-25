@@ -10,6 +10,7 @@ pub enum ErrorType {
     InsufficientArguments { min: usize, actual: usize },
 }
 
+#[derive(Clone)]
 pub struct BuiltinCommand<'a> {
     pub name: &'a str,
     pub callback: CommandCallback,
