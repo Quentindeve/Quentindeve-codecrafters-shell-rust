@@ -7,6 +7,7 @@ pub enum ErrorType {
     CommandNotFound(String),
     ArgumentError(usize),
     NotNullExitCode(i32),
+    InsufficientArguments { min: usize, actual: usize },
 }
 
 pub struct BuiltinCommand<'a> {
@@ -21,5 +22,5 @@ impl<'a> BuiltinCommand<'a> {
 }
 
 pub fn get_builtins() -> Vec<BuiltinCommand<'static>> {
-    vec![BUILTIN_EXIT, BUILTIN_ECHO]
+    vec![BUILTIN_EXIT, BUILTIN_ECHO, BUILTIN_TYPE]
 }
