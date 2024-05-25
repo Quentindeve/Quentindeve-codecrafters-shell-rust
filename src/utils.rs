@@ -6,6 +6,7 @@ use std::{
 
 pub fn search_command_in_env(command_name: &str) -> Option<PathBuf> {
     let env = std::env::var("PATH").unwrap();
+    println!("ENV: {}", env);
     let mut paths = env
         .split(":")
         .map(|s| String::from(s))
